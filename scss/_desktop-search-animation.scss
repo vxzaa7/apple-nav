@@ -1,0 +1,66 @@
+
+.desktop-nav__list{
+	li{
+		transition: $all-ease;
+	}
+}
+
+
+.desktop-nav__list.hide{
+	li{
+		opacity: 0;
+		pointer-events: none;
+	}
+}
+
+.main-search.hide {
+  opacity: 0;
+	transform: scale(0.8);
+  pointer-events: none; //滑鼠穿透
+}
+
+.over-mask{
+	transition: $all-ease;
+}
+
+
+// desktop nav item animation delay
+@for $i from 1 through 13 {
+  .desktop-nav__list li:nth-of-type(#{$i}),
+	.desktop-nav__list.hide li:nth-of-type(#{14-$i}) {
+    transition-delay: $i*30ms;
+  }
+}
+
+
+
+//點擊搜尋列後的動畫
+.main-search{
+	&__btn,	form{
+     opacity: 1;
+		 transition-delay: 400ms;
+		 transform: translateX(0);
+	}
+	&__close{
+		opacity: 0.5;
+		transition: $all-ease;
+		transition-delay: 400ms;
+	}
+}
+
+
+
+
+.main-search.hide{
+	&__btn {
+		opacity: 0;
+		transform: translateX(50px);
+			}
+			form{
+				opacity: 0;
+		transform: translateX(50px);
+			}
+	&__close{
+		opacity: 0;
+	}
+}
